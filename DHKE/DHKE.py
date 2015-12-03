@@ -1,0 +1,39 @@
+answer = raw_input("Public key or shared secret: ")
+
+class DHKE(object):
+    def __init__(self, base, modPrime, aSecret):
+        self.base = base
+        self.modPrime = modPrime
+        self.aSecret = aSecret
+        self.publicKey = publicKey
+    
+    @classmethod
+    def publicKey(self, base, modPrime, aSecret):
+#        base = input("What is your shared base prime? ")
+#        modPrime = input("What is your shared second prime? ")
+#        aSecret = input("What is your secret prime? ")
+        publicKey = base ** aSecret % modPrime
+        print(publicKey)
+    
+    @classmethod
+    def sharedSecret(self, publicKey, modPrime, aSecret):
+#        publicKey = input("What is your public key? ")
+#        modPrime = input("What is your shared second prime? ")
+#        aSecret = input("What is your secret prime? ")
+        sharedSecret = publicKey ** aSecret % modPrime
+        print(sharedSecret)
+
+if answer.lower() == "public key":
+        base = input("What is your shared base prime? ")
+        modPrime = input("What is your shared second prime? ")
+        aSecret = input("What is your secret prime? ")
+        pK = DHKE.publicKey(base, modPrime, aSecret)
+        print(pK)
+elif answer.lower() == "shared secret":
+        publicKey = input("What is your public key? ")
+        modPrime = input("What is your shared second prime? ")
+        aSecret = input("What is your secret prime? ")
+        sS = DHKE.sharedSecret(publicKey, modPrime, aSecret)
+        print(sS)
+else:
+    print("Goodbye!")
