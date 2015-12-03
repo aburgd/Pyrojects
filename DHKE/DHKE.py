@@ -9,17 +9,11 @@ class DHKE(object):
     
     @classmethod
     def publicKey(self, base, modPrime, aSecret):
-#        base = input("What is your shared base prime? ")
-#        modPrime = input("What is your shared second prime? ")
-#        aSecret = input("What is your secret prime? ")
         publicKey = base ** aSecret % modPrime
         print(publicKey)
     
     @classmethod
     def sharedSecret(self, publicKey, modPrime, aSecret):
-#        publicKey = input("What is your public key? ")
-#        modPrime = input("What is your shared second prime? ")
-#        aSecret = input("What is your secret prime? ")
         sharedSecret = publicKey ** aSecret % modPrime
         print(sharedSecret)
 
