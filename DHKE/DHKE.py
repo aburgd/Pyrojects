@@ -1,3 +1,4 @@
+import random
 answer = raw_input("Public key or shared secret: ")
 
 class DHKE(object):
@@ -18,7 +19,9 @@ class DHKE(object):
         print(sharedSecret)
 
 if answer.lower() == "public key":
-        base = input("What is your shared base prime? ")
+        print "Your shared base integer is: "
+        base = random.randint(1, 1031)
+        print base
         modPrime = input("What is your shared second prime? ")
         aSecret = input("What is your secret prime? ")
         pK = DHKE.publicKey(base, modPrime, aSecret)
